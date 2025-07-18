@@ -1,4 +1,4 @@
-# Claude Squad
+# Claude Squad(Clade Code Agent 並列実行システム)
 
 [README in English is here](./docs/README.en.md) 
 
