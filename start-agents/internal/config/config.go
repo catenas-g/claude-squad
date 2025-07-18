@@ -48,7 +48,7 @@ func DefaultConfig() *Config {
 
 	// Unified configuration directory path
 	claudeDir := filepath.Join(homeDir, ".claude")
-	claudCodeAgentsDir := filepath.Join(claudeDir, "claude-code-agents")
+	claudCodeAgentsDir := filepath.Join(claudeDir, "claude-squad")
 
 	return &Config{
 		MaxProcesses:        runtime.NumCPU(),

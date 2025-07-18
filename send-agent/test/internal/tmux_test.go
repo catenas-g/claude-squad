@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/shivase/cloud-code-agents/send-agent/internal"
+	"github.com/catenas-g/claude-squad/send-agent/internal"
 )
 
 // Basic functional tests for tmux functions

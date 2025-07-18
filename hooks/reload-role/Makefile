@@ -59,12 +59,21 @@ clean:
 
 # Install the binary to system PATH
 install: build
+	@if [ -f "$(INSTALL_DIR)/$(BINARY_NAME)" ]; then \
+		echo "🗑️  Removing existing $(BINARY_NAME)..."; \
+		sudo rm "$(INSTALL_DIR)/$(BINARY_NAME)"; \
+	fi
 	sudo cp $(BUILD_DIR)/$(BINARY_NAME) $(INSTALL_DIR)/$(BINARY_NAME)
 	sudo chmod +x $(INSTALL_DIR)/$(BINARY_NAME)
 
 # Uninstall the binary from system PATH
 uninstall:
-	sudo rm -f $(INSTALL_DIR)/$(BINARY_NAME)
+	@if [ -f "$(INSTALL_DIR)/$(BINARY_NAME)" ]; then \
+		echo "🗑️  Removing $(BINARY_NAME)..."; \
+		sudo rm "$(INSTALL_DIR)/$(BINARY_NAME)"; \
+	else \
+		echo "ℹ️  $(BINARY_NAME) not found in $(INSTALL_DIR)"; \
+	fi
 
 # Test the application
 test:

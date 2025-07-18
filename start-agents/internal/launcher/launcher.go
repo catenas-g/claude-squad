@@ -8,11 +8,11 @@ import (
 	"strings"
 	"time"
 
+	"github.com/catenas-g/claude-squad/internal/auth"
+	"github.com/catenas-g/claude-squad/internal/process"
+	"github.com/catenas-g/claude-squad/internal/tmux"
+	"github.com/catenas-g/claude-squad/internal/utils"
 	"github.com/rs/zerolog/log"
-	"github.com/shivase/claude-code-agents/internal/auth"
-	"github.com/shivase/claude-code-agents/internal/process"
-	"github.com/shivase/claude-code-agents/internal/tmux"
-	"github.com/shivase/claude-code-agents/internal/utils"
 )
 
 // ValidateEnvironment validates system environment
@@ -80,7 +80,7 @@ func checkRequiredDirectories() bool {
 	homeDir, _ := os.UserHomeDir()
 
 	requiredDirs := []string{
-		filepath.Join(homeDir, ".claude", "claude-code-agents", "instructions"),
+		filepath.Join(homeDir, ".claude", "claude-squad", "instructions"),
 	}
 
 	for _, dir := range requiredDirs {
@@ -760,7 +760,7 @@ func RunIntegrationTests() error {
 func checkInstructionFiles() bool {
 	homeDir, _ := os.UserHomeDir()
 
-	instructionsDir := filepath.Join(homeDir, ".claude", "claude-code-agents", "instructions")
+	instructionsDir := filepath.Join(homeDir, ".claude", "claude-squad", "instructions")
 	files := []string{"po.md", "manager.md", "developer.md"}
 
 	for _, file := range files {

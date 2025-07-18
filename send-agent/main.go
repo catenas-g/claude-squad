@@ -6,7 +6,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/shivase/cloud-code-agents/send-agent/internal"
+	"github.com/catenas-g/claude-squad/send-agent/internal"
 )
 
 // Command definition

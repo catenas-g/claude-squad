@@ -10,8 +10,8 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/catenas-g/claude-squad/internal/config"
 	"github.com/rs/zerolog/log"
-	"github.com/shivase/claude-code-agents/internal/config"
 )
 
 // SystemLoadInfo represents system load information

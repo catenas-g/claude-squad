@@ -2,10 +2,10 @@
 
 # 変数定義
 GO_VERSION := 1.21
-BINARY_NAME := claude-code-agents
+BINARY_NAME := claude-squad
 BUILD_DIR := build
 INSTALL_DIR=/usr/local/bin
-PACKAGE_NAME := claude-code-agents
+PACKAGE_NAME := claude-squad
 
 # マルチプラットフォーム対応
 GOOS := $(shell go env GOOS)
@@ -37,7 +37,10 @@ build: deps
 install: build
 	@echo "📦 Installing binaries to $(INSTALL_DIR)..."
 	@mkdir -p $(INSTALL_DIR)
-	sudo rm $(INSTALL_DIR)/$(BINARY_NAME)
+	@if [ -f "$(INSTALL_DIR)/$(BINARY_NAME)" ]; then \
+		echo "🗑️  Removing existing $(BINARY_NAME)..."; \
+		sudo rm "$(INSTALL_DIR)/$(BINARY_NAME)"; \
+	fi
 	sudo cp $(BUILD_DIR)/$(BINARY_NAME) $(INSTALL_DIR)/
 	sudo chmod +x $(INSTALL_DIR)/$(BINARY_NAME)
 
@@ -45,7 +48,12 @@ install: build
 .PHONY: uninstall
 uninstall:
 	@echo "🗑️  Uninstalling binaries..."
-	@rm -f $(INSTALL_DIR)/$(BINARY_NAME)
+	@if [ -f "$(INSTALL_DIR)/$(BINARY_NAME)" ]; then \
+		echo "🗑️  Removing $(BINARY_NAME)..."; \
+		sudo rm "$(INSTALL_DIR)/$(BINARY_NAME)"; \
+	else \
+		echo "ℹ️  $(BINARY_NAME) not found in $(INSTALL_DIR)"; \
+	fi
 	@echo "✅ Uninstallation completed"
 
 # テスト
@@ -98,7 +106,7 @@ clean:
 # ヘルプ
 .PHONY: help
 help:
-	@echo "🤖 Claude Code Agents - Go Implementation"
+	@echo "🤖 Claude Squad - Go Implementation"
 	@echo ""
 	@echo "Available targets:"
 	@echo "  build              - Build the main binary for current platform"

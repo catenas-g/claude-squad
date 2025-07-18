@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/mock"
 
-	"github.com/shivase/claude-code-agents/internal/auth"
+	"github.com/catenas-g/claude-squad/internal/auth"
 )
 
 // MockAuthProvider - AuthProviderInterfaceのモック実装

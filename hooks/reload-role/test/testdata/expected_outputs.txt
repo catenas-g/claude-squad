@@ -3,7 +3,7 @@
 ## Valid Role Reload Output Template
 🔄 {role}の役割定義を再読み込み中...
 
-📋 ファイル: {home}/.claude/claude-code-agents/instructions/{role}.md
+📋 ファイル: {home}/.claude/claude-squad/instructions/{role}.md
 
 🔄 前の役割定義をリセットしています...
 📖 新しい役割定義を適用します：
@@ -16,7 +16,7 @@
 
 ## Invalid Role Error Output Template
 ❌ エラー: 無効な役割です。
-📁 instructionsファイルが見つかりません: {home}/.claude/claude-code-agents/instructions/{role}.md
+📁 instructionsファイルが見つかりません: {home}/.claude/claude-squad/instructions/{role}.md
 📝 使用例: /reload-role [role名称]
 
 ## File Not Found Error Output Template
@@ -36,7 +36,7 @@
 ### Valid PO Role Output
 🔄 poの役割定義を再読み込み中...
 
-📋 ファイル: /tmp/test-home/.claude/claude-code-agents/instructions/po.md
+📋 ファイル: /tmp/test-home/.claude/claude-squad/instructions/po.md
 
 🔄 前の役割定義をリセットしています...
 📖 新しい役割定義を適用します：
@@ -75,11 +75,11 @@
 
 ### Invalid Role Error Output Example
 ❌ エラー: 無効な役割です。
-📁 instructionsファイルが見つかりません: /tmp/test-home/.claude/claude-code-agents/instructions/nonexistent.md
+📁 instructionsファイルが見つかりません: /tmp/test-home/.claude/claude-squad/instructions/nonexistent.md
 📝 使用例: /reload-role [role名称]
 
 ### File Not Found Error Output Example
-❌ エラー: /tmp/test-home/.claude/claude-code-agents/instructions/missing.md が見つかりません。
+❌ エラー: /tmp/test-home/.claude/claude-squad/instructions/missing.md が見つかりません。
 
 ## Output Patterns for Testing
 

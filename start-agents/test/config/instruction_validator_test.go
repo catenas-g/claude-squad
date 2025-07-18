@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/shivase/claude-code-agents/internal/config"
+	"github.com/catenas-g/claude-squad/internal/config"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

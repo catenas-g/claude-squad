@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/shivase/claude-code-agents/internal/config"
+	"github.com/catenas-g/claude-squad/internal/config"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -32,7 +32,7 @@ func TestGenerateConfigBasic(t *testing.T) {
 
 	templateContent := `# Test Configuration
 CLAUDE_CLI_PATH=~/.claude/local/claude
-INSTRUCTIONS_DIR=~/.claude/claude-code-agents/instructions
+INSTRUCTIONS_DIR=~/.claude/claude-squad/instructions
 SESSION_NAME=test-session
 DEV_COUNT=2`
 
@@ -40,7 +40,7 @@ DEV_COUNT=2`
 	assert.NoError(t, err)
 
 	// 生成されたファイルを確認
-	configPath := filepath.Join(tempHome, ".claude", "claude-code-agents", "agents.conf")
+	configPath := filepath.Join(tempHome, ".claude", "claude-squad", "agents.conf")
 	assert.FileExists(t, configPath)
 
 	content, err := os.ReadFile(configPath)
@@ -62,7 +62,7 @@ func TestForceGenerateConfig(t *testing.T) {
 	defer os.Setenv("HOME", oldHome)
 
 	// 設定ディレクトリを作成
-	configDir := filepath.Join(tempHome, ".claude", "claude-code-agents")
+	configDir := filepath.Join(tempHome, ".claude", "claude-squad")
 	err = os.MkdirAll(configDir, 0755)
 	require.NoError(t, err)
 
@@ -102,7 +102,7 @@ func TestGenerateConfigWithExistingFile(t *testing.T) {
 	defer os.Setenv("HOME", oldHome)
 
 	// 設定ディレクトリを作成
-	configDir := filepath.Join(tempHome, ".claude", "claude-code-agents")
+	configDir := filepath.Join(tempHome, ".claude", "claude-squad")
 	err = os.MkdirAll(configDir, 0755)
 	require.NoError(t, err)
 

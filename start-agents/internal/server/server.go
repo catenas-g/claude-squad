@@ -5,8 +5,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/catenas-g/claude-squad/internal/tmux"
 	"github.com/rs/zerolog/log"
-	"github.com/shivase/claude-code-agents/internal/tmux"
 )
 
 // MessageServer - tmux-based message server

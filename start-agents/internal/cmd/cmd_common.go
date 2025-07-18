@@ -9,8 +9,8 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/catenas-g/claude-squad/internal/tmux"
 	"github.com/rs/zerolog/log"
-	"github.com/shivase/claude-code-agents/internal/tmux"
 )
 
 // Common configuration structure
@@ -63,7 +63,7 @@ func (c *CommonConfig) Initialize() error {
 
 	// Unified configuration directory path
 	claudeDir := filepath.Join(homeDir, ".claude")
-	claudCodeAgentsDir := filepath.Join(claudeDir, "claude-code-agents")
+	claudCodeAgentsDir := filepath.Join(claudeDir, "claude-squad")
 
 	// Set configuration directory
 	if globalConfigDir != "" {

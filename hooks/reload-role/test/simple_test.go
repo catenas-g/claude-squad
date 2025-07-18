@@ -27,7 +27,7 @@ func executeHook(cmd *cobra.Command, args []string) error {
 	// 役割が有効かどうかをチェック
 	if !isValidRole(role) {
 		homeDir, _ := os.UserHomeDir()
-		instructionsDir := filepath.Join(homeDir, ".claude", "claude-code-agents", "instructions")
+		instructionsDir := filepath.Join(homeDir, ".claude", "claude-squad", "instructions")
 		fmt.Println("❌ Error: Invalid role.")
 		fmt.Printf("📁 Instructions file not found: %s.%s\n", instructionsDir, role)
 		fmt.Println("📝 Usage: /reload-role [role name]")
@@ -40,7 +40,7 @@ func executeHook(cmd *cobra.Command, args []string) error {
 		return fmt.Errorf("failed to get home directory: %w", err)
 	}
 
-	mdFile := filepath.Join(homeDir, ".claude", "claude-code-agents", "instructions", role+".md")
+	mdFile := filepath.Join(homeDir, ".claude", "claude-squad", "instructions", role+".md")
 
 	// Check if the file exists
 	if _, err := os.Stat(mdFile); os.IsNotExist(err) {
@@ -79,7 +79,7 @@ func isValidRole(role string) bool {
 	}
 
 	// Build the md file path
-	mdFile := filepath.Join(homeDir, ".claude", "claude-code-agents", "instructions", role+".md")
+	mdFile := filepath.Join(homeDir, ".claude", "claude-squad", "instructions", role+".md")
 
 	// Check if the file exists
 	if _, err := os.Stat(mdFile); os.IsNotExist(err) {
@@ -181,7 +181,7 @@ func TestIsValidRole(t *testing.T) {
 	defer os.Setenv("HOME", originalHome)
 
 	// テスト用のディレクトリ構造を作成
-	instructionsDir := filepath.Join(tmpDir, ".claude", "claude-code-agents", "instructions")
+	instructionsDir := filepath.Join(tmpDir, ".claude", "claude-squad", "instructions")
 	err = os.MkdirAll(instructionsDir, 0755)
 	if err != nil {
 		t.Fatalf("Failed to create instructions dir: %v", err)
@@ -288,7 +288,7 @@ func TestErrorHandling(t *testing.T) {
 			name: "Specified role file does not exist",
 			setupFunc: func(tmpDir string) error {
 				// instructionsディレクトリまで作成するが、ファイルは作成しない
-				return os.MkdirAll(filepath.Join(tmpDir, ".claude", "claude-code-agents", "instructions"), 0755)
+				return os.MkdirAll(filepath.Join(tmpDir, ".claude", "claude-squad", "instructions"), 0755)
 			},
 			args:        []string{"/reload-role nonexistent"},
 			expectedErr: true,
@@ -297,7 +297,7 @@ func TestErrorHandling(t *testing.T) {
 		{
 			name: "Empty role file exists",
 			setupFunc: func(tmpDir string) error {
-				instructionsDir := filepath.Join(tmpDir, ".claude", "claude-code-agents", "instructions")
+				instructionsDir := filepath.Join(tmpDir, ".claude", "claude-squad", "instructions")
 				err := os.MkdirAll(instructionsDir, 0755)
 				if err != nil {
 					return err

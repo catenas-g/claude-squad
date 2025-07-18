@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/shivase/claude-code-agents/internal/auth"
+	"github.com/catenas-g/claude-squad/internal/auth"
 )
 
 // TestNewClaudeAuthManager - Test creating authentication manager

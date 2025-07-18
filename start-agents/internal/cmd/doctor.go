@@ -7,9 +7,9 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/shivase/claude-code-agents/internal/auth"
-	"github.com/shivase/claude-code-agents/internal/config"
-	"github.com/shivase/claude-code-agents/internal/utils"
+	"github.com/catenas-g/claude-squad/internal/auth"
+	"github.com/catenas-g/claude-squad/internal/config"
+	"github.com/catenas-g/claude-squad/internal/utils"
 )
 
 // DoctorCommand performs system health check
@@ -95,7 +95,7 @@ func DoctorCommand() error {
 	fmt.Println("📄 Instruction Files List")
 	fmt.Println("------------------------")
 
-	instructionsDir := filepath.Join(os.Getenv("HOME"), ".claude", "claude-code-agents", "instructions")
+	instructionsDir := filepath.Join(os.Getenv("HOME"), ".claude", "claude-squad", "instructions")
 	files, err := os.ReadDir(instructionsDir)
 	if err != nil {
 		fmt.Printf("📂 Instructions directory: %s\n", instructionsDir)
@@ -153,7 +153,7 @@ func DoctorCommand() error {
 		fmt.Println("🎉 System is ready to operate normally!")
 		fmt.Println()
 		fmt.Println("💡 Next steps:")
-		fmt.Println("   1. Start the system with: claude-code-agents [session-name]")
+		fmt.Println("   1. Start the system with: claude-squad [session-name]")
 		fmt.Println("   2. Verify Claude CLI works properly in each pane")
 	} else {
 		fmt.Println("⚠️ Problems detected in the system")

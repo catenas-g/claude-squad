@@ -32,22 +32,22 @@ make clean
 ### セッション管理
 ```bash
 # セッション作成（統合監視画面）
-./build/claude-code-agents ai-teams
+./build/claude-squad ai-teams
 
 # セッション作成（個別セッション）
-./build/claude-code-agents ai-teams --layout individual
+./build/claude-squad ai-teams --layout individual
 
 # 既存セッションのリセット
-./build/claude-code-agents ai-teams --reset
+./build/claude-squad ai-teams --reset
 
 # セッション一覧表示
-./build/claude-code-agents --list
+./build/claude-squad --list
 
 # セッション削除
-./build/claude-code-agents --delete ai-teams
+./build/claude-squad --delete ai-teams
 
 # 設定表示
-./build/claude-code-agents --show-config
+./build/claude-squad --show-config
 ```
 
 ## アーキテクチャ概要
@@ -61,7 +61,7 @@ make clean
 
 2. **config**: アプリケーション設定とリソース監視
    - JSON設定ファイルの読み込み/保存
-   - デフォルト設定の管理（~/.claude/claude-code-agents/）
+   - デフォルト設定の管理（~/.claude/claude-squad/）
    - リソース監視（メモリ、CPU使用量チェック）
 
 3. **launcher**: システム起動とtmuxセッション管理
@@ -91,7 +91,7 @@ make clean
 ```
 ~/.claude/
 ├── settings.json                    # Claude CLI設定
-└── claude-code-agents/
+└── claude-squad/
     ├── instructions/                # エージェント指示ファイル
     │   ├── po.md
     │   ├── manager.md

@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/shivase/cloud-code-agents/send-agent/internal"
+	"github.com/catenas-g/claude-squad/send-agent/internal"
 	"github.com/spf13/cobra"
 	"github.com/stretchr/testify/assert"
 )

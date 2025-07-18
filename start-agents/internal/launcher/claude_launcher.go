@@ -8,10 +8,10 @@ import (
 	"strings"
 	"time"
 
+	"github.com/catenas-g/claude-squad/internal/process"
+	"github.com/catenas-g/claude-squad/internal/tmux"
+	"github.com/catenas-g/claude-squad/internal/utils"
 	"github.com/rs/zerolog/log"
-	"github.com/shivase/claude-code-agents/internal/process"
-	"github.com/shivase/claude-code-agents/internal/tmux"
-	"github.com/shivase/claude-code-agents/internal/utils"
 )
 
 // ClaudeLauncher Claude CLI起動用のヘルパー

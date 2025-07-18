@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/shivase/claude-code-agents/internal/utils"
+	"github.com/catenas-g/claude-squad/internal/utils"
 )
 
 // ParseArguments parses command line arguments (moved from main.go)
@@ -41,8 +41,8 @@ func ParseArguments(args []string) (string, bool, error) {
 				os.Exit(0)
 			} else {
 				fmt.Println("❌ Error: --delete requires a session name to delete")
-				fmt.Println("Usage: ./claude-code-agents --delete [session-name]")
-				fmt.Println("Session list: ./claude-code-agents --list")
+				fmt.Println("Usage: ./claude-squad --delete [session-name]")
+				fmt.Println("Session list: ./claude-squad --list")
 				os.Exit(1)
 			}
 		case "--delete-all":
@@ -86,7 +86,7 @@ func ParseArguments(args []string) (string, bool, error) {
 					i++
 				} else {
 					fmt.Printf("❌ Error: Invalid language '%s'. Use 'ja' or 'en'\n", args[i+1])
-					fmt.Println("Usage: ./claude-code-agents --init [ja|en] [--force]")
+					fmt.Println("Usage: ./claude-squad --init [ja|en] [--force]")
 					os.Exit(1)
 				}
 			}
@@ -100,7 +100,7 @@ func ParseArguments(args []string) (string, bool, error) {
 			// 言語が指定されていない場合はエラー
 			if language == "" {
 				fmt.Println("❌ Error: Language parameter required")
-				fmt.Println("Usage: ./claude-code-agents --init [ja|en] [--force]")
+				fmt.Println("Usage: ./claude-squad --init [ja|en] [--force]")
 				os.Exit(1)
 			}
 

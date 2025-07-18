@@ -1,4 +1,4 @@
-module github.com/shivase/claude-code-agents
+module github.com/catenas-g/claude-squad
 
 go 1.21
 

@@ -13,8 +13,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/catenas-g/claude-squad/internal/auth"
 	"github.com/rs/zerolog/log"
-	"github.com/shivase/claude-code-agents/internal/auth"
 )
 
 // SecurityEnhancement - Security enhancement functionality

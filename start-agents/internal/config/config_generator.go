@@ -57,7 +57,7 @@ func (cg *ConfigGenerator) setTargetPath() error {
 	}
 
 	// Unified configuration directory path
-	configDir := filepath.Join(homeDir, ".claude", "claude-code-agents")
+	configDir := filepath.Join(homeDir, ".claude", "claude-squad")
 	cg.targetPath = filepath.Join(configDir, "agents.conf")
 	cg.backupPath = filepath.Join(configDir, fmt.Sprintf("agents.conf.backup.%d", time.Now().Unix()))
 

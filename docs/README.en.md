@@ -1,4 +1,4 @@
-# Cloud Code Agents
+# Claude Squad
 
 [日本語READMEはこちら](../README.md)
 
@@ -26,27 +26,27 @@ This project is a toolset for running multiple AI agents in parallel to streamli
 ### Preparation
 
 Create the necessary environment information for startup using the `--init` command.
-Files are saved to `~/.claude/claude-code-agents/agents.json` by default.
+Files are saved to `~/.claude/claude-squad/agents.json` by default.
 
 The `--init` command requires a language parameter (`ja` or `en`), and instruction files for the specified language will be copied.
 
 ```bash
-git clone https://github.com/shivase/claude-code-agents.git
-cd claude-code-agents
+git clone https://github.com/catenas-g/claude-squad.git
+cd claude-squad
 # install start-agents and send-agent to /usr/local/bin
 make install
 
 # Initialize configuration (using English instruction files)
-claude-code-agents --init en
+claude-squad --init en
 
 # Initialize configuration (using Japanese instruction files)
-# claude-code-agents --init ja
+# claude-squad --init ja
 
 # Run system diagnostics
-claude-code-agents --doctor
+claude-squad --doctor
 
 # View configuration file information
-claude-code-agents --show-config
+claude-squad --show-config
 ```
 
 ### Setting Agent Constraints
@@ -54,7 +54,7 @@ claude-code-agents --show-config
 The Claude Code launched by this program starts with `dangerously-skip-permissions` enabled.
 Therefore, if you don't impose constraints on agents, they will act quite freely, which can be inconvenient.
 
-Please refer to [settings.json](./docs/settings.json) and configure the `allow` and `deny` settings in `~/.claude/claude-code-agents/settings.json`.
+Please refer to [settings.json](./docs/settings.json) and configure the `allow` and `deny` settings in `~/.claude/claude-squad/settings.json`.
 
 #### Launching Agents
 
@@ -64,7 +64,7 @@ Claude Code operates based on the startup directory.
 # Navigate to the target project folder
 cd [project_folder]
 # Start by specifying a session name
-claude-code-agents [session_name]
+claude-squad [session_name]
 ```
 
 **Launched agents:**
@@ -74,10 +74,10 @@ claude-code-agents [session_name]
 
 #### Agent Definition Files
 
-The operational definitions for each agent are stored in `~/.claude/claude-code-agents/instructions`.
+The operational definitions for each agent are stored in `~/.claude/claude-squad/instructions`.
 They are saved in the format `<role>.md`, so please modify them according to your environment and restart the application.
 
-When you run `claude-code-agents --init en`, English instruction files will be automatically copied. If you run `claude-code-agents --init ja`, Japanese instruction files will be copied instead.
+When you run `claude-squad --init en`, English instruction files will be automatically copied. If you run `claude-squad --init ja`, Japanese instruction files will be copied instead.
 
 ## FAQ
 
@@ -95,7 +95,7 @@ This can happen when conversations become lengthy or occasionally during process
 It can sometimes be fixed by reloading the role file as follows:
 
 ```bash
-cat "~/.claude/claude-code-agents/instructions/developer.md"
+cat "~/.claude/claude-squad/instructions/developer.md"
 ```
 
 ### Q: PO/Manager started generating code themselves
@@ -116,6 +116,6 @@ MIT License - See [LICENSE](../LICENSE) file for details.
 
 Contributions to the project are welcome.
 
-- [Issues](https://github.com/shivase/cloud-code-agents/issues) - Bug reports and feature requests
-- [Pull Requests](https://github.com/shivase/cloud-code-agents/pulls) - Code contributions
-- [Discussions](https://github.com/shivase/cloud-code-agents/discussions) - Questions and discussions
+- [Issues](https://github.com/catenas-g/claude-squad/issues) - Bug reports and feature requests
+- [Pull Requests](https://github.com/catenas-g/claude-squad/pulls) - Code contributions
+- [Discussions](https://github.com/catenas-g/claude-squad/discussions) - Questions and discussions

@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/catenas-g/claude-squad/internal/utils"
 	"github.com/rs/zerolog/log"
-	"github.com/shivase/claude-code-agents/internal/utils"
 )
 
 // TeamConfig represents AI Team configuration structure
@@ -139,7 +139,7 @@ func LoadTeamConfigFromPath(configPath string) (*TeamConfig, error) {
 
 	// Unified configuration directory path
 	claudeDir := filepath.Join(homeDir, ".claude")
-	claudCodeAgentsDir := filepath.Join(claudeDir, "claude-code-agents")
+	claudCodeAgentsDir := filepath.Join(claudeDir, "claude-squad")
 
 	// Default configuration
 	config := &TeamConfig{
@@ -166,7 +166,7 @@ func LoadTeamConfigFromPath(configPath string) (*TeamConfig, error) {
 		RestartDelay:           5 * time.Second,
 		ProcessTimeout:         30 * time.Second,
 		SendCommand:            "send-agent",
-		BinaryName:             "claude-code-agents",
+		BinaryName:             "claude-squad",
 		DevCount:               4,
 		POInstructionFile:      "po.md",
 		ManagerInstructionFile: "manager.md",
@@ -301,8 +301,8 @@ func GetUnifiedConfigPaths() *ConfigPaths {
 		// Return relative paths on error
 		return &ConfigPaths{
 			ClaudeDir:          ".claude",
-			CloudCodeAgentsDir: ".claude-code-agents",
-			TeamConfigPath:     ".claude-code-agents.conf",
+			CloudCodeAgentsDir: ".claude-squad",
+			TeamConfigPath:     ".claude-squad.conf",
 			MainConfigPath:     "manager.json",
 			LogsDir:            "logs",
 			InstructionsDir:    "instructions",
@@ -311,7 +311,7 @@ func GetUnifiedConfigPaths() *ConfigPaths {
 	}
 
 	claudeDir := filepath.Join(homeDir, ".claude")
-	claudCodeAgentsDir := filepath.Join(claudeDir, "claude-code-agents")
+	claudCodeAgentsDir := filepath.Join(claudeDir, "claude-squad")
 
 	return &ConfigPaths{
 		ClaudeDir:          claudeDir,
@@ -461,26 +461,26 @@ func GetTeamConfigPath() string {
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
 		// Return default file in current directory on error
-		return ".claude-code-agents.conf"
+		return ".claude-squad.conf"
 	}
 
 	// Unified configuration directory path
-	configDir := filepath.Join(homeDir, ".claude", "claude-code-agents")
+	configDir := filepath.Join(homeDir, ".claude", "claude-squad")
 
-	// Priority 1: Configuration file in claude-code-agents directory
+	// Priority 1: Configuration file in claude-squad directory
 	claudConfigPath := filepath.Join(configDir, "agents.conf")
 	if _, err := os.Stat(claudConfigPath); err == nil {
 		return claudConfigPath
 	}
 
 	// Priority 2: Configuration file in home directory
-	homeConfigPath := filepath.Join(homeDir, ".claude-code-agents.conf")
+	homeConfigPath := filepath.Join(homeDir, ".claude-squad.conf")
 	if _, err := os.Stat(homeConfigPath); err == nil {
 		return homeConfigPath
 	}
 
 	// Priority 3: Configuration file in current directory
-	currentConfigPath := ".claude-code-agents.conf"
+	currentConfigPath := ".claude-squad.conf"
 	if _, err := os.Stat(currentConfigPath); err == nil {
 		return currentConfigPath
 	}

@@ -7,11 +7,11 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/catenas-g/claude-squad/internal/config"
+	"github.com/catenas-g/claude-squad/internal/logger"
+	"github.com/catenas-g/claude-squad/internal/tmux"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	"github.com/shivase/claude-code-agents/internal/config"
-	"github.com/shivase/claude-code-agents/internal/logger"
-	"github.com/shivase/claude-code-agents/internal/tmux"
 )
 
 //go:embed instructions
@@ -108,8 +108,8 @@ func ListAISessions() error {
 func DeleteAISession(sessionName string) error {
 	if sessionName == "" {
 		fmt.Println("❌ Error: Please specify the session name to delete")
-		fmt.Println("Usage: ./claude-code-agents --delete [session-name]")
-		fmt.Println("Session list: ./claude-code-agents --list")
+		fmt.Println("Usage: ./claude-squad --delete [session-name]")
+		fmt.Println("Session list: ./claude-squad --list")
 		return fmt.Errorf("session name not specified")
 	}
 
@@ -306,10 +306,10 @@ func createSystemDirectories(forceOverwrite bool) error {
 		description string
 	}{
 		{filepath.Join(homeDir, ".claude"), "Claude base directory"},
-		{filepath.Join(homeDir, ".claude", "claude-code-agents"), "Claude Code Agents directory"},
-		{filepath.Join(homeDir, ".claude", "claude-code-agents", "instructions"), "Instructions directory"},
-		{filepath.Join(homeDir, ".claude", "claude-code-agents", "auth_backup"), "Authentication backup directory"},
-		{filepath.Join(homeDir, ".claude", "claude-code-agents", "logs"), "Log directory"},
+		{filepath.Join(homeDir, ".claude", "claude-squad"), "Claude Code Agents directory"},
+		{filepath.Join(homeDir, ".claude", "claude-squad", "instructions"), "Instructions directory"},
+		{filepath.Join(homeDir, ".claude", "claude-squad", "auth_backup"), "Authentication backup directory"},
+		{filepath.Join(homeDir, ".claude", "claude-squad", "logs"), "Log directory"},
 	}
 
 	for _, dir := range directories {
@@ -343,7 +343,7 @@ func CopyInstructionFiles(language string, forceOverwrite bool) error {
 		return fmt.Errorf("failed to get home directory: %w", err)
 	}
 
-	targetDir := filepath.Join(homeDir, ".claude", "claude-code-agents", "instructions")
+	targetDir := filepath.Join(homeDir, ".claude", "claude-squad", "instructions")
 
 	// Create target directory if it doesn't exist
 	if err := os.MkdirAll(targetDir, 0750); err != nil {
@@ -417,10 +417,10 @@ func generateConfigTemplate() string {
 
 # Path Configurations
 CLAUDE_CLI_PATH=~/.claude/local/claude
-INSTRUCTIONS_DIR=~/.claude/claude-code-agents/instructions
-CONFIG_DIR=~/.claude/claude-code-agents
-LOG_FILE=~/.claude/claude-code-agents/logs/manager.log
-AUTH_BACKUP_DIR=~/.claude/claude-code-agents/auth_backup
+INSTRUCTIONS_DIR=~/.claude/claude-squad/instructions
+CONFIG_DIR=~/.claude/claude-squad
+LOG_FILE=~/.claude/claude-squad/logs/manager.log
+AUTH_BACKUP_DIR=~/.claude/claude-squad/auth_backup
 
 # System Settings
 LOG_LEVEL=info
@@ -433,7 +433,7 @@ IDE_BACKUP_ENABLED=true
 
 # Commands
 SEND_COMMAND=send-agent
-BINARY_NAME=claude-code-agents
+BINARY_NAME=claude-squad
 
 # Developer Settings
 DEV_COUNT=4
@@ -457,7 +457,7 @@ PROCESS_TIMEOUT=30s
 # Environment Settings
 # ENVIRONMENT=development
 # STRICT_VALIDATION=false
-# FALLBACK_INSTRUCTION_DIR=~/.claude/claude-code-agents/fallback
+# FALLBACK_INSTRUCTION_DIR=~/.claude/claude-squad/fallback
 
 # Extended instruction settings (configurable in JSON format)
 # For detailed configuration, refer to documentation/instruction-config.md
@@ -473,25 +473,25 @@ func displayInitializationSuccess() {
 	fmt.Println("=" + strings.Repeat("=", 38))
 	fmt.Println()
 	fmt.Println("📂 Created directories:")
-	fmt.Printf("  • %s\n", filepath.Join(homeDir, ".claude", "claude-code-agents"))
-	fmt.Printf("  • %s\n", filepath.Join(homeDir, ".claude", "claude-code-agents", "instructions"))
-	fmt.Printf("  • %s\n", filepath.Join(homeDir, ".claude", "claude-code-agents", "auth_backup"))
-	fmt.Printf("  • %s\n", filepath.Join(homeDir, ".claude", "claude-code-agents", "logs"))
+	fmt.Printf("  • %s\n", filepath.Join(homeDir, ".claude", "claude-squad"))
+	fmt.Printf("  • %s\n", filepath.Join(homeDir, ".claude", "claude-squad", "instructions"))
+	fmt.Printf("  • %s\n", filepath.Join(homeDir, ".claude", "claude-squad", "auth_backup"))
+	fmt.Printf("  • %s\n", filepath.Join(homeDir, ".claude", "claude-squad", "logs"))
 	fmt.Println()
 	fmt.Println("📝 Created files:")
-	fmt.Printf("  • %s/agents.conf\n", filepath.Join(homeDir, ".claude", "claude-code-agents"))
+	fmt.Printf("  • %s/agents.conf\n", filepath.Join(homeDir, ".claude", "claude-squad"))
 	fmt.Println()
 	fmt.Println("💡 Next steps:")
 	fmt.Println("  1. Place instruction files:")
-	fmt.Printf("     • %s/po.md\n", filepath.Join(homeDir, ".claude", "claude-code-agents", "instructions"))
-	fmt.Printf("     • %s/manager.md\n", filepath.Join(homeDir, ".claude", "claude-code-agents", "instructions"))
-	fmt.Printf("     • %s/developer.md\n", filepath.Join(homeDir, ".claude", "claude-code-agents", "instructions"))
+	fmt.Printf("     • %s/po.md\n", filepath.Join(homeDir, ".claude", "claude-squad", "instructions"))
+	fmt.Printf("     • %s/manager.md\n", filepath.Join(homeDir, ".claude", "claude-squad", "instructions"))
+	fmt.Printf("     • %s/developer.md\n", filepath.Join(homeDir, ".claude", "claude-squad", "instructions"))
 	fmt.Println("  2. Check system health:")
-	fmt.Println("     ./claude-code-agents --doctor")
+	fmt.Println("     ./claude-squad --doctor")
 	fmt.Println("  3. Authenticate with Claude CLI:")
 	fmt.Println("     claude auth")
 	fmt.Println("  4. Start the system:")
-	fmt.Println("     ./claude-code-agents ai-teams")
+	fmt.Println("     ./claude-squad ai-teams")
 	fmt.Println()
 }
 
@@ -512,11 +512,11 @@ func GenerateConfigCommand(forceOverwrite bool) error {
 	fmt.Println("✅ Configuration file generation completed")
 
 	homeDir, _ := os.UserHomeDir()
-	fmt.Printf("📝 Generated file: %s/agents.conf\n", filepath.Join(homeDir, ".claude", "claude-code-agents"))
+	fmt.Printf("📝 Generated file: %s/agents.conf\n", filepath.Join(homeDir, ".claude", "claude-squad"))
 	fmt.Println()
 	fmt.Println("💡 Next steps:")
 	fmt.Println("  1. Review and edit the configuration file")
-	fmt.Println("  2. Check system health: ./claude-code-agents --doctor")
+	fmt.Println("  2. Check system health: ./claude-squad --doctor")
 
 	return nil
 }

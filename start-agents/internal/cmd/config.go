@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/shivase/claude-code-agents/internal/config"
-	"github.com/shivase/claude-code-agents/internal/utils"
+	"github.com/catenas-g/claude-squad/internal/config"
+	"github.com/catenas-g/claude-squad/internal/utils"
 )
 
 // DisplayConfigCommand displays detailed configuration information

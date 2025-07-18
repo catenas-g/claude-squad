@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/shivase/claude-code-agents/internal/cmd"
+	"github.com/catenas-g/claude-squad/internal/cmd"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -98,7 +98,7 @@ func TestCopyInstructionFiles(t *testing.T) {
 		require.NoError(t, err)
 
 		// コピーされたファイルが存在することを確認
-		targetDir := filepath.Join(tempDir, ".claude", "claude-code-agents", "instructions")
+		targetDir := filepath.Join(tempDir, ".claude", "claude-squad", "instructions")
 		expectedFiles := []string{"po.md", "manager.md", "developer.md"}
 
 		for _, filename := range expectedFiles {
@@ -123,7 +123,7 @@ func TestCopyInstructionFiles(t *testing.T) {
 		require.NoError(t, err)
 
 		// コピーされたファイルが存在することを確認
-		targetDir := filepath.Join(tempDir, ".claude", "claude-code-agents", "instructions")
+		targetDir := filepath.Join(tempDir, ".claude", "claude-squad", "instructions")
 		expectedFiles := []string{"po.md", "manager.md", "developer.md"}
 
 		for _, filename := range expectedFiles {
@@ -148,7 +148,7 @@ func TestCopyInstructionFiles(t *testing.T) {
 		require.NoError(t, err)
 
 		// 既存ファイルの内容を変更
-		targetDir := filepath.Join(tempDir, ".claude", "claude-code-agents", "instructions")
+		targetDir := filepath.Join(tempDir, ".claude", "claude-squad", "instructions")
 		testFile := filepath.Join(targetDir, "po.md")
 		_, err = os.ReadFile(testFile)
 		require.NoError(t, err)

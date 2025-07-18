@@ -2,7 +2,7 @@
 
 ## 概要
 
-このディレクトリは、Cloud Code Agentsプロジェクトで使用されるGit Hooksの統合管理システムです。
+このディレクトリは、Claude Squadプロジェクトで使用されるGit Hooksの統合管理システムです。
 
 ## 構成
 
@@ -65,8 +65,8 @@ chmod +x .git/hooks/pre-commit
 
 1. プロジェクトのクローン
 ```bash
-git clone https://github.com/shivase/cloud-code-agents.git
-cd cloud-code-agents
+git clone https://github.com/catenas-g/claude-squad.git
+cd claude-squad
 ```
 
 2. 依存関係のインストール

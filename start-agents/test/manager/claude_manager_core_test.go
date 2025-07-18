@@ -10,10 +10,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/catenas-g/claude-squad/internal/manager"
+	"github.com/catenas-g/claude-squad/test/common"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	"github.com/shivase/claude-code-agents/internal/manager"
-	"github.com/shivase/claude-code-agents/test/common"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"

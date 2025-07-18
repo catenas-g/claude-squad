@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/catenas-g/claude-squad/internal/logger"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	"github.com/shivase/claude-code-agents/internal/logger"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

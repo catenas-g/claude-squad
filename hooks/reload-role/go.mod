@@ -1,4 +1,4 @@
-module github.com/shivase/cloud-code-agents/hooks
+module github.com/catenas-g/claude-squad/hooks
 
 go 1.21
 

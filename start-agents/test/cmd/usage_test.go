@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/shivase/claude-code-agents/internal/cmd"
+	"github.com/catenas-g/claude-squad/internal/cmd"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -50,7 +50,7 @@ func TestShowUsage(t *testing.T) {
 	t.Run("Check basic information", func(t *testing.T) {
 		assert.Contains(t, output, "AI Parallel Development Team - Integrated Launch System")
 		assert.Contains(t, output, "Usage:")
-		assert.Contains(t, output, "claude-code-agents")
+		assert.Contains(t, output, "claude-squad")
 	})
 
 	// Check argument descriptions
@@ -92,22 +92,22 @@ func TestShowUsage(t *testing.T) {
 	// Check usage examples
 	t.Run("Check usage examples", func(t *testing.T) {
 		assert.Contains(t, output, "Examples:")
-		assert.Contains(t, output, "claude-code-agents myproject")
-		assert.Contains(t, output, "claude-code-agents ai-team")
-		assert.Contains(t, output, "claude-code-agents myproject --reset")
-		assert.Contains(t, output, "claude-code-agents myproject --verbose")
-		assert.Contains(t, output, "claude-code-agents myproject --silent")
-		assert.Contains(t, output, "claude-code-agents --list")
-		assert.Contains(t, output, "claude-code-agents --delete myproject")
-		assert.Contains(t, output, "claude-code-agents --delete-all")
-		assert.Contains(t, output, "claude-code-agents --show-config")
-		assert.Contains(t, output, "claude-code-agents --config ai-team")
-		assert.Contains(t, output, "claude-code-agents --generate-config")
-		assert.Contains(t, output, "claude-code-agents --generate-config --force")
-		assert.Contains(t, output, "claude-code-agents --init ja")
-		assert.Contains(t, output, "claude-code-agents --init en")
-		assert.Contains(t, output, "claude-code-agents --init ja --force")
-		assert.Contains(t, output, "claude-code-agents --doctor")
+		assert.Contains(t, output, "claude-squad myproject")
+		assert.Contains(t, output, "claude-squad ai-team")
+		assert.Contains(t, output, "claude-squad myproject --reset")
+		assert.Contains(t, output, "claude-squad myproject --verbose")
+		assert.Contains(t, output, "claude-squad myproject --silent")
+		assert.Contains(t, output, "claude-squad --list")
+		assert.Contains(t, output, "claude-squad --delete myproject")
+		assert.Contains(t, output, "claude-squad --delete-all")
+		assert.Contains(t, output, "claude-squad --show-config")
+		assert.Contains(t, output, "claude-squad --config ai-team")
+		assert.Contains(t, output, "claude-squad --generate-config")
+		assert.Contains(t, output, "claude-squad --generate-config --force")
+		assert.Contains(t, output, "claude-squad --init ja")
+		assert.Contains(t, output, "claude-squad --init en")
+		assert.Contains(t, output, "claude-squad --init ja --force")
+		assert.Contains(t, output, "claude-squad --doctor")
 	})
 
 	// Check environment variable descriptions
@@ -147,22 +147,22 @@ func TestShowUsage_OutputFormat(t *testing.T) {
 	t.Run("Check command line format", func(t *testing.T) {
 		// Check that command line examples are in correct format
 		commandExamples := []string{
-			"claude-code-agents myproject",
-			"claude-code-agents ai-team",
-			"claude-code-agents myproject --reset",
-			"claude-code-agents myproject --verbose",
-			"claude-code-agents myproject --silent",
-			"claude-code-agents --list",
-			"claude-code-agents --delete myproject",
-			"claude-code-agents --delete-all",
-			"claude-code-agents --show-config",
-			"claude-code-agents --config ai-team",
-			"claude-code-agents --generate-config",
-			"claude-code-agents --generate-config --force",
-			"claude-code-agents --init ja",
-			"claude-code-agents --init en",
-			"claude-code-agents --init ja --force",
-			"claude-code-agents --doctor",
+			"claude-squad myproject",
+			"claude-squad ai-team",
+			"claude-squad myproject --reset",
+			"claude-squad myproject --verbose",
+			"claude-squad myproject --silent",
+			"claude-squad --list",
+			"claude-squad --delete myproject",
+			"claude-squad --delete-all",
+			"claude-squad --show-config",
+			"claude-squad --config ai-team",
+			"claude-squad --generate-config",
+			"claude-squad --generate-config --force",
+			"claude-squad --init ja",
+			"claude-squad --init en",
+			"claude-squad --init ja --force",
+			"claude-squad --doctor",
 		}
 
 		for _, example := range commandExamples {
@@ -346,7 +346,7 @@ func TestShowUsage_Structure(t *testing.T) {
 		// Check that option description lines are properly indented
 		optionLines := []string{}
 		for _, line := range lines {
-			if strings.Contains(line, "--") && !strings.HasPrefix(strings.TrimSpace(line), "claude-code-agents") {
+			if strings.Contains(line, "--") && !strings.HasPrefix(strings.TrimSpace(line), "claude-squad") {
 				optionLines = append(optionLines, line)
 			}
 		}

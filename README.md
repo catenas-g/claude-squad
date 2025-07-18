@@ -1,4 +1,4 @@
-# Cloud Code Agents
+# Claude Squad
 
 [README in English is here](./docs/README.en.md) 
 
@@ -24,27 +24,27 @@ Product Ownerに指示を与えることで、Managerが適切に作業を解析
 ### 事前作業
 
 起動に必要な各種環境情報を`--init`コマンドで作成します。
-ファイルはデフォルトでは`~/.claude/claude-code-agents/agents.json`に保存されます。
+ファイルはデフォルトでは`~/.claude/claude-squad/agents.json`に保存されます。
 
 `--init`コマンドには言語パラメータ（`ja`または`en`）が必要で、指定された言語のインストラクションファイルがコピーされます。
 
 ```bash
-git clone https://github.com/shivase/claude-code-agents.git
-cd claude-code-agents
+git clone https://github.com/catenas-g/claude-squad.git
+cd claude-squad
 # install start-agents and send-agent to /usr/local/bin
 make install
 
 # 設定初期化（日本語のインストラクションファイルを使用）
-claude-code-agents --init ja
+claude-squad --init ja
 
 # 設定初期化（英語のインストラクションファイルを使用）
-# claude-code-agents --init en
+# claude-squad --init en
 
 # システム診断実行
-claude-code-agents --doctor
+claude-squad --doctor
 
 # 設定ファイルの情報を見たい場合
-claude-code-agents --show-config
+claude-squad --show-config
 ```
 
 ### エージェントの制約を設定する。
@@ -52,7 +52,7 @@ claude-code-agents --show-config
 このプログラムで起動するclaude codeは`dangerously-skip-permissions`をONにして起動しています。
 そのため、エージェントに制約を与えておかなければ、かなり勝手に動いてしまい不都合があります。
 
-[settings.json](./docs/settings.json)を参考に、`~/.claude/claude-code-agents/settings.json`の、`allow`と`deny`の設定をおこなってください。
+[settings.json](./docs/settings.json)を参考に、`~/.claude/claude-squad/settings.json`の、`allow`と`deny`の設定をおこなってください。
 
 #### エージェントの起動
 
@@ -62,7 +62,7 @@ claude codeは起動ディレクトリに依存して動作します。
 # 対象のプロジェクトフォルダに移動
 cd [プロジェクトフォルダ]
 # セッション名を指定して起動してください
-claude-code-agents [session_name]
+claude-squad [session_name]
 ```
 
 **起動されるエージェント：**
@@ -72,7 +72,7 @@ claude-code-agents [session_name]
 
 #### 各エージェントの定義ファイル
 
-各種エージェントの動作定義は`~/.claude/claude-code-agents/instructions`に保存されています。
+各種エージェントの動作定義は`~/.claude/claude-squad/instructions`に保存されています。
 名前は `<role>.md`の形式で保存されますので、 自身の環境に合わせて任意に変更した上で、再度アプリを立ち上げなおして下さい。
 
 ## FAQ
@@ -91,7 +91,7 @@ claude-code-agents [session_name]
 以下のように、Roleファイルを再読み込みさせると治ることがあります。
 
 ```bash
-cat "~/.claude/claude-code-agents/instructions/developer.md"
+cat "~/.claude/claude-squad/instructions/developer.md"
 ```
 
 ### Q: PO/Managerが自身でコード生成するようになった
@@ -114,6 +114,6 @@ MIT License - 詳細は [LICENSE](LICENSE) ファイルを参照してくださ�
 
 プロジェクトへの貢献を歓迎します。
 
-- [Issues](https://github.com/shivase/cloud-code-agents/issues) - バグ報告・機能要求
-- [Pull Requests](https://github.com/shivase/cloud-code-agents/pulls) - コード貢献
-- [Discussions](https://github.com/shivase/cloud-code-agents/discussions) - 質問・議論
+- [Issues](https://github.com/catenas-g/claude-squad/issues) - バグ報告・機能要求
+- [Pull Requests](https://github.com/catenas-g/claude-squad/pulls) - コード貢献
+- [Discussions](https://github.com/catenas-g/claude-squad/discussions) - 質問・議論

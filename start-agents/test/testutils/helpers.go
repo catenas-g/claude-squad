@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/shivase/claude-code-agents/internal/config"
+	"github.com/catenas-g/claude-squad/internal/config"
 	"github.com/stretchr/testify/mock"
 )
 
@@ -83,7 +83,7 @@ func CreateTestConfig(options ...ConfigOption) *config.TeamConfig {
 		RestartDelay:           5 * time.Second,
 		ProcessTimeout:         30 * time.Second,
 		SendCommand:            "send-agent",
-		BinaryName:             "claude-code-agents",
+		BinaryName:             "claude-squad",
 		DevCount:               4,
 		POInstructionFile:      "po.md",
 		ManagerInstructionFile: "manager.md",

@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/catenas-g/claude-squad/internal/tmux"
 	"github.com/rs/zerolog/log"
-	"github.com/shivase/claude-code-agents/internal/tmux"
 )
 
 // MessageClient - tmux-based message client

@@ -5,9 +5,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/shivase/claude-code-agents/internal/cmd"
-	"github.com/shivase/claude-code-agents/internal/logger"
-	"github.com/shivase/claude-code-agents/internal/tmux"
+	"github.com/catenas-g/claude-squad/internal/cmd"
+	"github.com/catenas-g/claude-squad/internal/logger"
+	"github.com/catenas-g/claude-squad/internal/tmux"
 )
 
 func main() {

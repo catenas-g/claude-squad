@@ -15,7 +15,7 @@ func isValidRole(role string) bool {
 	}
 
 	// mdファイルのパスを構築
-	mdFile := filepath.Join(homeDir, ".claude", "claude-code-agents", "instructions", role+".md")
+	mdFile := filepath.Join(homeDir, ".claude", "claude-squad", "instructions", role+".md")
 
 	// ファイルが存在するかチェック
 	if _, err := os.Stat(mdFile); os.IsNotExist(err) {
@@ -236,7 +236,7 @@ func TestIsValidRole_FilePermissions(t *testing.T) {
 
 	// 読み取り専用ファイルを作成
 	createTestRoleFile(t, tempDir, "readonly", "# readonly role")
-	readOnlyFile := filepath.Join(tempDir, ".claude", "claude-code-agents", "instructions", "readonly.md")
+	readOnlyFile := filepath.Join(tempDir, ".claude", "claude-squad", "instructions", "readonly.md")
 	err := os.Chmod(readOnlyFile, 0444) // 読み取り専用
 	if err != nil {
 		t.Fatalf("Failed to set file permissions: %v", err)
@@ -244,7 +244,7 @@ func TestIsValidRole_FilePermissions(t *testing.T) {
 
 	// 権限なしファイルを作成（Unixシステムの場合）
 	createTestRoleFile(t, tempDir, "noperms", "# no permissions role")
-	noPermsFile := filepath.Join(tempDir, ".claude", "claude-code-agents", "instructions", "noperms.md")
+	noPermsFile := filepath.Join(tempDir, ".claude", "claude-squad", "instructions", "noperms.md")
 	err = os.Chmod(noPermsFile, 0000) // 権限なし
 	if err != nil {
 		t.Fatalf("Failed to set file permissions: %v", err)
@@ -460,7 +460,7 @@ func setupTestEnvironment(t *testing.T, tempDir string) {
 	os.Setenv("HOME", tempDir)
 
 	// 必要なディレクトリ構造を作成
-	instructionsDir := filepath.Join(tempDir, ".claude", "claude-code-agents", "instructions")
+	instructionsDir := filepath.Join(tempDir, ".claude", "claude-squad", "instructions")
 	err := os.MkdirAll(instructionsDir, 0755)
 	if err != nil {
 		t.Fatalf("Failed to create instructions directory: %v", err)
@@ -473,7 +473,7 @@ func setupTestEnvironment(t *testing.T, tempDir string) {
 }
 
 func createTestRoleFile(t *testing.T, tempDir, role, content string) {
-	instructionsDir := filepath.Join(tempDir, ".claude", "claude-code-agents", "instructions")
+	instructionsDir := filepath.Join(tempDir, ".claude", "claude-squad", "instructions")
 	filePath := filepath.Join(instructionsDir, role+".md")
 	err := os.WriteFile(filePath, []byte(content), 0644)
 	if err != nil {
@@ -495,7 +495,7 @@ func setupTestEnvironmentBenchmark(b *testing.B, tempDir string) {
 	originalHome := os.Getenv("HOME")
 	os.Setenv("HOME", tempDir)
 
-	instructionsDir := filepath.Join(tempDir, ".claude", "claude-code-agents", "instructions")
+	instructionsDir := filepath.Join(tempDir, ".claude", "claude-squad", "instructions")
 	err := os.MkdirAll(instructionsDir, 0755)
 	if err != nil {
 		b.Fatalf("Failed to create instructions directory: %v", err)
@@ -507,7 +507,7 @@ func setupTestEnvironmentBenchmark(b *testing.B, tempDir string) {
 }
 
 func createTestRoleFileBenchmark(b *testing.B, tempDir, role, content string) {
-	instructionsDir := filepath.Join(tempDir, ".claude", "claude-code-agents", "instructions")
+	instructionsDir := filepath.Join(tempDir, ".claude", "claude-squad", "instructions")
 	filePath := filepath.Join(instructionsDir, role+".md")
 	err := os.WriteFile(filePath, []byte(content), 0644)
 	if err != nil {

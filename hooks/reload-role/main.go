@@ -56,7 +56,7 @@ func executeHook(cmd *cobra.Command, args []string) error {
 	// 役割が有効かどうかをチェック
 	if !isValidRole(role) {
 		homeDir, _ := os.UserHomeDir()
-		instructionsDir := filepath.Join(homeDir, ".claude", "claude-code-agents", "instructions")
+		instructionsDir := filepath.Join(homeDir, ".claude", "claude-squad", "instructions")
 		fmt.Println("❌ エラー: 無効な役割です。")
 		fmt.Printf("📁 instructionsファイルが見つかりません: %s.%s\n", instructionsDir, role)
 		fmt.Println("📝 使用例: /reload-role [role名称]")
@@ -69,7 +69,7 @@ func executeHook(cmd *cobra.Command, args []string) error {
 		return fmt.Errorf("ホームディレクトリの取得に失敗しました: %w", err)
 	}
 
-	mdFile := filepath.Join(homeDir, ".claude", "claude-code-agents", "instructions", role+".md")
+	mdFile := filepath.Join(homeDir, ".claude", "claude-squad", "instructions", role+".md")
 
 	// ファイルが存在するかチェック
 	if _, err := os.Stat(mdFile); os.IsNotExist(err) {
@@ -109,7 +109,7 @@ func isValidRole(role string) bool {
 	}
 
 	// mdファイルのパスを構築
-	mdFile := filepath.Join(homeDir, ".claude", "claude-code-agents", "instructions", role+".md")
+	mdFile := filepath.Join(homeDir, ".claude", "claude-squad", "instructions", role+".md")
 
 	// ファイルが存在するかチェック
 	if _, err := os.Stat(mdFile); os.IsNotExist(err) {

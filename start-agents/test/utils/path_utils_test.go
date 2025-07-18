@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/shivase/claude-code-agents/internal/utils"
+	"github.com/catenas-g/claude-squad/internal/utils"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"os"

@@ -3,7 +3,7 @@ package cmd
 import (
 	"testing"
 
-	"github.com/shivase/claude-code-agents/internal/cmd"
+	"github.com/catenas-g/claude-squad/internal/cmd"
 	"github.com/stretchr/testify/assert"
 )
 

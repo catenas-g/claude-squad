@@ -11,8 +11,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/shivase/claude-code-agents/internal/auth"
-	"github.com/shivase/claude-code-agents/internal/utils"
+	"github.com/catenas-g/claude-squad/internal/auth"
+	"github.com/catenas-g/claude-squad/internal/utils"
 )
 
 // ValidatePathsDetailed validates paths in detail
@@ -38,8 +38,8 @@ func ValidatePathsDetailed() []string {
 	homeDir, _ := os.UserHomeDir()
 	requiredDirs := []string{
 		filepath.Join(homeDir, ".claude"),
-		filepath.Join(homeDir, ".claude", "claude-code-agents"),
-		filepath.Join(homeDir, ".claude", "claude-code-agents", "instructions"),
+		filepath.Join(homeDir, ".claude", "claude-squad"),
+		filepath.Join(homeDir, ".claude", "claude-squad", "instructions"),
 	}
 
 	for _, dir := range requiredDirs {
@@ -180,7 +180,7 @@ func DisplaySolutionsForErrors(errors []string) {
 			fmt.Println("      curl -fsSL https://anthropic.com/claude/install.sh | sh")
 		case strings.Contains(err, "Required directory"):
 			fmt.Println("   → Please create required directories")
-			fmt.Println("      mkdir -p ~/.claude/claude-code-agents/instructions")
+			fmt.Println("      mkdir -p ~/.claude/claude-squad/instructions")
 		case strings.Contains(err, "settings.json"):
 			fmt.Println("   → Please start Claude CLI and complete initial setup")
 			fmt.Println("      claude")

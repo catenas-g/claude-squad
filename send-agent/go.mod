@@ -1,4 +1,4 @@
-module github.com/shivase/cloud-code-agents/send-agent
+module github.com/catenas-g/claude-squad/send-agent
 
 go 1.21
 
