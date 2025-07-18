@@ -11,7 +11,7 @@ By providing instructions to the Product Owner, the Manager will appropriately a
 
 This project is a toolset for running multiple AI agents in parallel to streamline team development. It consists of two main components:
 
-![screen_shot](screen_shot.png)
+![screen_shot](screen_shot_en.gif)
 
 - **start-agents**: Main system for launching and managing AI agent sessions
 - **send-agent**: Client tool for sending messages to running agents

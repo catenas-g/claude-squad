@@ -9,7 +9,7 @@ Product Ownerに指示を与えることで、Managerが適切に作業を解析
 
 このプロジェクトは、複数のAIエージェントを並列で実行し、チーム開発を効率化するためのツールセットです。以下の2つの主要コンポーネントで構成されています：
 
-![screen_shot](docs/screen_shot.png)
+![screen_shot](docs/screen_shot.gif)
 
 - **start-agents**: AIエージェントセッションを起動・管理するメインシステム
 - **send-agent**: 起動中のエージェントにメッセージを送信するクライアントツール
