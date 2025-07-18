@@ -52,7 +52,7 @@ claude-squad --show-config
 このプログラムで起動するclaude codeは`dangerously-skip-permissions`をONにして起動しています。
 そのため、エージェントに制約を与えておかなければ、かなり勝手に動いてしまい不都合があります。
 
-[settings.json](./docs/settings.json)を参考に、`~/.claude/claude-squad/settings.json`の、`allow`と`deny`の設定をおこなってください。
+[settings.json](./docs/settings.json)を参考に、`~/.claude/settings.json`の、`allow`と`deny`の設定をおこなってください。
 
 #### エージェントの起動
 

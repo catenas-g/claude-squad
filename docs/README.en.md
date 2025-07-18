@@ -54,7 +54,7 @@ claude-squad --show-config
 The Claude Code launched by this program starts with `dangerously-skip-permissions` enabled.
 Therefore, if you don't impose constraints on agents, they will act quite freely, which can be inconvenient.
 
-Please refer to [settings.json](./docs/settings.json) and configure the `allow` and `deny` settings in `~/.claude/claude-squad/settings.json`.
+Please refer to [settings.json](./docs/settings.json) and configure the `allow` and `deny` settings in `~/.claude/settings.json`.
 
 #### Launching Agents
 
